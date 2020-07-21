@@ -7,7 +7,8 @@ class App extends Component {
     persons: [
       { name: 'Tywin', age: 28 },
       { name: 'Cersei', age: 29 },
-      { name: 'Tyrion', age: 26 }
+      { name: 'Tyrion', age: 26 },
+      { name: 'Sansa', age: 19}
     ],
     otherState: 'the bastard'
   };
@@ -19,10 +20,22 @@ class App extends Component {
       persons: [
         { name: newName, age: 28 },
         { name: 'Eddard', age: 29 },
-        { name: 'Bran', age: 27 }
+        { name: 'Bran', age: 27 },
+        { name: 'Sansa', age: 19}
       ]
     });
   };
+
+  nameChangedHandler = (event) => {
+    this.setState({
+      persons: [
+        { name: 'Arya', age: 28 },
+        { name: event.target.value, age: 29 },
+        { name: 'Bran', age: 27 },
+        { name: event.target.value, age: 19}
+      ]
+    });
+  }
 
   render() {
     return (
@@ -38,6 +51,7 @@ class App extends Component {
           name={this.state.persons[1].name}
           age={this.state.persons[1].age}
           click={this.switchNameHandler.bind(this, 'Woot!')}
+          changed={this.nameChangedHandler}
         >
           My Hobbies: Racing
         </Person>
