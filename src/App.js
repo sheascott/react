@@ -5,11 +5,11 @@ import Person from './Person/Person';
 class App extends Component {
   state = {
     persons: [
-      { name: 'Max', age: 28 },
-      { name: 'Manu', age: 29 },
-      { name: 'Stephanie', age: 26 }
+      { name: 'Tywin', age: 28 },
+      { name: 'Cersei', age: 29 },
+      { name: 'Tyrion', age: 26 }
     ],
-    otherState: 'some other value'
+    otherState: 'the bastard'
   };
 
   switchNameHandler = (newName) => {
@@ -18,8 +18,8 @@ class App extends Component {
     this.setState({
       persons: [
         { name: newName, age: 28 },
-        { name: 'Manu', age: 29 },
-        { name: 'Stephanie', age: 27 }
+        { name: 'Eddard', age: 29 },
+        { name: 'Bran', age: 27 }
       ]
     });
   };
@@ -29,7 +29,7 @@ class App extends Component {
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         <p>This is really working!</p>
-        <button onClick={this.switchNameHandler.bind(this, 'Maximilian')}>Switch Name</button>
+        <button onClick={() => this.switchNameHandler('Testaroo!!')}>Switch Name</button>
         <Person
           name={this.state.persons[0].name}
           age={this.state.persons[0].age}
@@ -37,7 +37,7 @@ class App extends Component {
         <Person
           name={this.state.persons[1].name}
           age={this.state.persons[1].age}
-          click={this.switchNameHandler.bind(this, 'Max!')}
+          click={this.switchNameHandler.bind(this, 'Woot!')}
         >
           My Hobbies: Racing
         </Person>
