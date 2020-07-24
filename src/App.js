@@ -45,7 +45,8 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: 'white', 
+      backgroundColor: 'green', 
+      color: 'white',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
@@ -55,6 +56,7 @@ class App extends Component {
 
 let persons = null;
 
+let dispVariable = 'Toggle Persons'
 
 if (this.state.showPersons) {
   persons = (
@@ -70,17 +72,18 @@ if (this.state.showPersons) {
       })}
     </div>
   )
+  style.backgroundColor = 'red';
+  dispVariable = 'Hide Persons'
 }
-
-
     return (
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         <p>This is really working!</p>
         <button 
-        style = {style}
-        onClick={this.togglePersonsHandler}>Toggle Persons</button>
-      {persons}
+          style = {style}
+          onClick={this.togglePersonsHandler}>{dispVariable}
+          </button>
+        {persons}
       </div>
     );
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
